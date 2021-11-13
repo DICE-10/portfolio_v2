@@ -114,7 +114,7 @@
     height:500px;
   }
   
-  #face1:hover,
+  /*#face1:hover,
   #face2:hover,
   #face3:hover,
   #face4:hover,
@@ -128,7 +128,7 @@
       outline-color: transparent;
       outline-offset: 30px;
     }
-  }
+  }*/
 @media screen and (min-width: 481px) {
 	/* 481px以上に適用されるCSS（タブレット用） */
     .container {
