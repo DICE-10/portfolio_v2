@@ -1,0 +1,374 @@
+.main{
+    height: 5000px;
+  }
+  body
+  {
+      margin:0;
+    padding:0;
+    background : black;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    height: 5000px;
+  }
+  .container {
+    margin:80px auto;
+    width:400px;
+    height: 100%;
+    transform: translate(-27%,-85%);
+  }
+  #boxarea{
+      left: 50%;
+      position: fixed;
+      top: 50%;
+  }
+  #cubeParent{
+    height:200px;
+    width:200px;
+    position:relative;
+  }
+  .cubeFace{
+    height:200px;
+    width:200px;
+    position:absolute;
+    border: 10px solid white;
+    font-size: 2rem;
+    background-color:rgba(0,0,0,0.9);
+  }
+  .upper{
+    text-transform:uppercase;
+  }
+  #face1{
+    font-size:2.5rem;
+    font-weight:bold;
+  }
+  #face2{
+    font-size:2.5rem;
+    font-weight:bold;
+  }
+  #face3{
+    font-size:2.5rem;
+    font-weight:bold;
+  }
+  #face4{
+    font-size:2.5rem;
+    font-weight:bold;
+  }
+  #face5{
+    font-size:2.5rem;
+    font-weight:bold;
+  }
+  #face6{
+    font-size:2.5rem;
+    font-weight:bold;
+    white-space: pre-wrap;
+  }
+  #face1,#face2,#face3,#face4,#face5,#face6{
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    outline: 0px solid;
+    outline-color: white;
+    outline-offset: 0px;
+    transition: .3s;
+  }
+  .upper{
+    width: 100%;
+  }
+  
+  .carItem{
+    position:absolute;
+    width:85px;
+    height:113px;
+  }
+  #rotPlane{
+  width:200px;
+  height:200px;
+  background:#00f;
+  position:relative;
+  color:#FFF;
+  }
+  
+  button:active
+  {
+  position:relative;
+  top:1px;
+  }
+  
+  #trigger1{
+    height:500px;
+  }
+  #trigger2{
+    height:500px;
+  }
+  #trigger3{
+    height:500px;
+  }
+  #trigger4{
+    height:500px;
+  }
+  #trigger5{
+    height:500px;
+  }
+  #trigger6{
+    height:500px;
+  }
+  
+  #face1:hover,
+  #face2:hover,
+  #face3:hover,
+  #face4:hover,
+  #face5:hover,
+  #face6:hover{
+    animation: light 1s infinite;
+  }
+  @keyframes light {
+    100% { 
+      outline: 20px solid;
+      outline-color: transparent;
+      outline-offset: 30px;
+    }
+  }
+@media screen and (min-width: 481px) {
+	/* 481px以上に適用されるCSS（タブレット用） */
+    .container {
+        margin:80px auto;
+        width:400px;
+        height: 100%;
+        transform: translate(-40%,-75%);
+      }
+      #boxarea{
+          left: 50%;
+          position: fixed;
+          top: 50%;
+      }
+      #cubeParent{
+        height:300px;
+        width:300px;
+        position:relative;
+      }
+      .cubeFace{
+        height:300px;
+        width:300px;
+        position:absolute;
+        border: 10px solid white;
+        font-size: 2rem;
+        background-color:rgba(0,0,0,0.9);
+      }
+      .upper{
+        text-transform:uppercase;
+      }
+      #face1{
+        font-size:5rem;
+        font-weight:bold;
+      }
+      #face2{
+        font-size:3.5rem;
+        font-weight:bold;
+      }
+      #face3{
+        font-size:3.5rem;
+        font-weight:bold;
+      }
+      #face4{
+        font-size:3.5rem;
+        font-weight:bold;
+      }
+      #face5{
+        font-size:3.5rem;
+        font-weight:bold;
+      }
+      #face6{
+        font-size:3.5rem;
+        font-weight:bold;
+        white-space: pre-wrap;
+      }
+      #face1,#face2,#face3,#face4,#face5,#face6{
+        text-align: center;
+        width: 100%;
+        cursor: pointer;
+        outline: 0px solid;
+        outline-color: white;
+        outline-offset: 0px;
+        transition: .3s;
+      }
+      .upper{
+        width: 100%;
+      }
+      
+      .carItem{
+        position:absolute;
+        width:85px;
+        height:113px;
+      }
+      #rotPlane{
+      width:200px;
+      height:200px;
+      background:#00f;
+      position:relative;
+      color:#FFF;
+      }
+      
+      button:active
+      {
+      position:relative;
+      top:1px;
+      }
+      
+      #trigger1{
+        height:500px;
+      }
+      #trigger2{
+        height:500px;
+      }
+      #trigger3{
+        height:500px;
+      }
+      #trigger4{
+        height:500px;
+      }
+      #trigger5{
+        height:500px;
+      }
+      #trigger6{
+        height:500px;
+      }
+      
+      #face1:hover,
+      #face2:hover,
+      #face3:hover,
+      #face4:hover,
+      #face5:hover,
+      #face6:hover{
+        animation: light 1s infinite;
+      }
+      @keyframes light {
+        100% { 
+          outline: 15px solid;
+          outline-color: transparent;
+          outline-offset: 30px;
+        }
+      }
+}
+@media screen and (min-width: 960px) {
+	/* 960px以上に適用されるCSS（PC用） */
+    .container {
+        margin:80px auto;
+        width:400px;
+        height: 100%;
+        transform: translate(-50%,-70%);
+      }
+      #boxarea{
+          left: 50%;
+          position: fixed;
+          top: 50%;
+      }
+      #cubeParent{
+        height:400px;
+        width:400px;
+        position:relative;
+      }
+      .cubeFace{
+        height:400px;
+        width:400px;
+        position:absolute;
+        border: 10px solid white;
+        font-size: 2rem;
+        background-color:rgba(0,0,0,0.9);
+      }
+      .upper{
+        text-transform:uppercase;
+      }
+      #face1{
+        font-size:5rem;
+        font-weight:bold;
+      }
+      #face2{
+        font-size:3.5rem;
+        font-weight:bold;
+      }
+      #face3{
+        font-size:3.5rem;
+        font-weight:bold;
+      }
+      #face4{
+        font-size:3.5rem;
+        font-weight:bold;
+      }
+      #face5{
+        font-size:3.5rem;
+        font-weight:bold;
+      }
+      #face6{
+        font-size:3.5rem;
+        font-weight:bold;
+        white-space: pre-wrap;
+      }
+      #face1,#face2,#face3,#face4,#face5,#face6{
+        text-align: center;
+        width: 100%;
+        cursor: pointer;
+        outline: 0px solid;
+        outline-color: white;
+        outline-offset: 0px;
+        transition: .3s;
+      }
+      .upper{
+        width: 100%;
+      }
+      
+      .carItem{
+        position:absolute;
+        width:85px;
+        height:113px;
+      }
+      #rotPlane{
+      width:200px;
+      height:200px;
+      background:#00f;
+      position:relative;
+      color:#FFF;
+      }
+      
+      button:active
+      {
+      position:relative;
+      top:1px;
+      }
+      
+      #trigger1{
+        height:500px;
+      }
+      #trigger2{
+        height:500px;
+      }
+      #trigger3{
+        height:500px;
+      }
+      #trigger4{
+        height:500px;
+      }
+      #trigger5{
+        height:500px;
+      }
+      #trigger6{
+        height:500px;
+      }
+      
+      #face1:hover,
+      #face2:hover,
+      #face3:hover,
+      #face4:hover,
+      #face5:hover,
+      #face6:hover{
+        animation: light 1s infinite;
+      }
+      @keyframes light {
+        100% { 
+          outline: 20px solid;
+          outline-color: transparent;
+          outline-offset: 30px;
+        }
+      }
+}
+ 

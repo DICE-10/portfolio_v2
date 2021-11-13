@@ -6,18 +6,27 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useEffect,useState } from 'react';
 
-
 const Home: NextPage = () => {
   const [text, setText] = useState("Click\nor\nTap");
-  var flg = false;
+  const [distance, setDistance] = useState(0);
+  var flg = false;  
   useEffect(() => {
     if (process.browser) {
+      const width = window.innerWidth;
+      if (width >= 960) {
+        setDistance(210);
+      }
+      else if(width >= 480) {
+        setDistance(160);
+      }
+      else {
+        setDistance(110);
+      }
       gsap.registerPlugin(ScrollTrigger);
-      //Animation();
     }
   }, []);
   const Animation = () => {
-    if (flg != true) {
+    if (!flg) {
       var tl3 = gsap.timeline({ paused: true });
       gsap.timeline({
         scrollTrigger: {
@@ -75,12 +84,12 @@ const Home: NextPage = () => {
       });
       tl3.to("div#cubeParent", { z: '-=150' })
         .to("div.cubeFace", { autoAlpha: 1 })
-        .to("div#face1", { rotationX: 360, rotationY: 360, z: 260 })
-        .to("div#face2", { rotationX: 90, rotationY: 0, y: -260 }, '1')
-        .to("div#face3", { rotationY: 270, x: -260  }, '1')
-        .to("div#face4", { rotationX: 270, rotationY: 360,y: 260 }, '1')
-        .to("div#face5", { rotationY: 90, x: 260 }, '1')
-        .to("div#face6", { rotationX: 180, rotationY: 0, rotationZ: 180, z: -260 ,onComplete: textChange}, '1');
+        .to("div#face1", { rotationX: 360, rotationY: 360, z: distance })
+        .to("div#face2", { rotationX: 90, rotationY: 0,rotationZ: 360, y: -distance }, '1')
+        .to("div#face3", { rotationY: 270, x: -distance }, '1')
+        .to("div#face4", { rotationX: 270, rotationY: 360,y: distance }, '1')
+        .to("div#face5", { rotationY: 90,rotationZ: 360, x: distance }, '1')
+        .to("div#face6", { rotationX: 180, rotationY: 0, rotationZ: 180, z: -distance ,onComplete: textChange}, '1');
     
   
       gsap.set("div.container", { perspective: 500 });
@@ -171,18 +180,6 @@ const Home: NextPage = () => {
   const textChange = () => setText("Contact");
   return (
     <MainLayout title="Home">
-      {/* <div>
-        <button id="btn7">Tween Faces</button>
-        <button id="btn8">Rotate Parent</button>
-        <div>
-          <button id="btn1">front face</button>
-          <button id="btn2">right face</button>
-          <button id="btn3">back face</button>
-          <button id="btn4">left face</button>
-          <button id="btn5">top face</button>
-          <button id="btn6">bottom face</button>
-        </div>
-      </div> */}
       <div id="trigger1"></div>
       <div id="trigger2"></div>
       <div id="trigger3"></div>
