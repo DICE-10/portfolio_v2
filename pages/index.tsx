@@ -44,7 +44,7 @@ const Home: NextPage = () => {
           trigger: '#trigger1',
           start: 'top', // アニメーション開始位置
           scrub: true,
-          markers: true, // マーカー表示
+          //markers: true, // マーカー表示
           onToggle: cube
         }
       });
@@ -53,7 +53,7 @@ const Home: NextPage = () => {
           trigger: '#trigger2',
           start: 'top', // アニメーション開始位置
           scrub: true,
-          markers: true, // マーカー表示
+         // markers: true, // マーカー表示
           onToggle: cube1
         }
       });
@@ -62,7 +62,7 @@ const Home: NextPage = () => {
           trigger: '#trigger3',
           start: 'top', // アニメーション開始位置
           scrub: true,
-          markers: true, // マーカー表示
+          //markers: true, // マーカー表示
           onToggle: cube2
         }
       });
@@ -71,7 +71,7 @@ const Home: NextPage = () => {
           trigger: '#trigger4',
           start: 'top', // アニメーション開始位置
           scrub: true,
-          markers: true, // マーカー表示
+          //markers: true, // マーカー表示
           onToggle: cube3
         }
       });
@@ -80,7 +80,7 @@ const Home: NextPage = () => {
           trigger: '#trigger5',
           start: 'top', // アニメーション開始位置
           scrub: true,
-          markers: true, // マーカー表示
+          //markers: true, // マーカー表示
           onToggle: cube4
         }
       });
@@ -89,7 +89,7 @@ const Home: NextPage = () => {
           trigger: '#trigger6',
           start: 'top', // アニメーション開始位置
           scrub: true,
-          markers: true, // マーカー表示
+          //markers: true, // マーカー表示
           onToggle: cube5
         }
       });
@@ -226,37 +226,38 @@ const Home: NextPage = () => {
   }
   return (
     <MainLayout title="Home">
-      <div id="trigger1"></div>
-      <div id="trigger2"></div>
-      <div id="trigger3"></div>
-      <div id="trigger4"></div>
-      <div id="trigger5"></div>
-      <div id="trigger6"></div>
-      <div id="boxarea">
-      <div className="container" id="cubeArea">
-        <div id="cubeParent">
-          <div className="cubeFace fs-outer" id="face1">
-            <span className="fs-inner upper">DICE<br/>SE</span>
-          </div>
-          <div className="cubeFace fs-outer" id="face2">
-            <span className="fs-inner upper">About</span>
-          </div>
-          <div className="cubeFace fs-outer" id="face3">
-            <span className="fs-inner upper">Profile</span>
-          </div>
-          <div className="cubeFace fs-outer" id="face4">
-            <span className="fs-inner upper">Service</span>
-          </div>
-            <div className="cubeFace fs-outer" id="face5" onClick={moveGallery}>
-            <span className="fs-inner upper">Gallery</span>
-          </div>
-          <div className="cubeFace fs-outer" id="face6">
-              <span className="fs-inner upper">{ text }</span>
+      <div id="mainBody">
+        <div id="trigger1"></div>
+        <div id="trigger2"></div>
+        <div id="trigger3"></div>
+        <div id="trigger4"></div>
+        <div id="trigger5"></div>
+        <div id="trigger6"></div>
+        <div id="boxarea">
+        <div className="container" id="cubeArea">
+          <div id="cubeParent">
+            <div className="cubeFace fs-outer" id="face1">
+              <span className="fs-inner upper">DICE<br/>SE</span>
+            </div>
+            <div className="cubeFace fs-outer" id="face2">
+              <span className="fs-inner upper">About</span>
+            </div>
+            <div className="cubeFace fs-outer" id="face3">
+              <span className="fs-inner upper">Profile</span>
+            </div>
+            <div className="cubeFace fs-outer" id="face4">
+              <span className="fs-inner upper">Service</span>
+            </div>
+              <div className="cubeFace fs-outer" id="face5" onClick={moveGallery}>
+              <span className="fs-inner upper">Gallery</span>
+            </div>
+            <div className="cubeFace fs-outer" id="face6">
+                <span className="fs-inner upper">{ text }</span>
+            </div>
           </div>
         </div>
+        </div>
       </div>
-      </div>
-
     </MainLayout>
   )
 }

@@ -1,21 +1,25 @@
 .main{
-    height: 5000px;
+    height: 3500px;
   }
   body
   {
-      margin:0;
+    margin:0;
     padding:0;
     background : black;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: white;
-    height: 5000px;
+   
   }
+#mainBody{
+  /*height: 5000px;*/
+}
   .container {
-    margin:80px auto;
-    width:200px;
-    height: 100%;
-    transform: translate(-50%,-85%);
+    width:100%;
+        height: 100%;
+        transform: translate(-50%, -60%);
+      -webkit-transform: translate(-50%, -60%);
+      -ms-transform: translate(-50%, -60%);
   }
   #boxarea{
       left: 50%;
@@ -133,9 +137,11 @@
 	/* 481px以上に適用されるCSS（タブレット用） */
     .container {
         margin:80px auto;
-        width:300px;
+        width:100%;
         height: 100%;
-        transform: translate(-40%,-70%);
+        transform: translate(-50%, -70%);
+      -webkit-transform: translate(-50%, -70%);
+      -ms-transform: translate(-50%, -70%);
       }
       #boxarea{
           left: 50%;
@@ -253,10 +259,11 @@
 @media screen and (min-width: 960px) {
 	/* 960px以上に適用されるCSS（PC用） */
     .container {
-        margin:80px auto;
-        width:400px;
+        width:100%;
         height: 100%;
-        transform: translate(-50%,-70%);
+        transform: translate(-50%, -70%);
+      -webkit-transform: translate(-50%, -70%);
+      -ms-transform: translate(-50%, -70%);
       }
       #boxarea{
           left: 50%;
