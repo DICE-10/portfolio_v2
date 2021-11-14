@@ -199,7 +199,7 @@ const Home: NextPage = () => {
     }).to("div#cubeParent", { z: '-=250' })
     .to("div#cubeParent", {
       rotateX: 360,
-      rotateY: 0,
+      rotateY: 360,
       rotateZ: 360
     })
       .add(gsap.timeline({
