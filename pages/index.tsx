@@ -8,26 +8,33 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
 
 const Home: NextPage = () => {
-  const [text, setText] = useState("Click\nor\nTap");
-  const [distance, setDistance] = useState(0);
+  const [text, setText] = useState("Loading");
+  //const [distance, setDistance] = useState(0);
   const router = useRouter();
+  var distance = 0;
   var flg = false;  
   useEffect(() => {
     if (process.browser) {
       const width = window.innerWidth;
-      const ref = document.referrer;
-      console.log(ref);
-      if (width >= 960) {
-        setDistance(210);
-      }
-      else if(width >= 480) {
-        setDistance(160);
-      }
-      else {
-        setDistance(110);
-      }
-      gsap.registerPlugin(ScrollTrigger);
+      setTimeout(() => {
+        if (width >= 960) {
+          distance = 210;
+          //setDistance(210);
+        }
+        else if (width >= 480) {
+          distance = 160;
+          //setDistance(160);
+        }
+        else {
+          distance = 110;
+          //setDistance(110);
+        }
+        gsap.registerPlugin(ScrollTrigger);
+        Animation();
+      }, 500);
+      
     }
+    
   }, []);
   const Animation = () => {
     if (!flg) {
@@ -214,7 +221,8 @@ const Home: NextPage = () => {
     );
   }
   const _moveGallery = () => {
-    router.push("https://dice-se.com/");
+    router.push("Gallery");
+    //router.push("https://dice-se.com/");
   }
   return (
     <MainLayout title="Home">
@@ -242,7 +250,7 @@ const Home: NextPage = () => {
             <div className="cubeFace fs-outer" id="face5" onClick={moveGallery}>
             <span className="fs-inner upper">Gallery</span>
           </div>
-          <div className="cubeFace fs-outer" id="face6" onClick={Animation}>
+          <div className="cubeFace fs-outer" id="face6">
               <span className="fs-inner upper">{ text }</span>
           </div>
         </div>
