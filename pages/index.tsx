@@ -4,15 +4,19 @@ import MainLayout from './components/MainLayout';
 import Scroll from './api/scroll';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router'
 
 const Home: NextPage = () => {
   const [text, setText] = useState("Click\nor\nTap");
   const [distance, setDistance] = useState(0);
+  const router = useRouter();
   var flg = false;  
   useEffect(() => {
     if (process.browser) {
       const width = window.innerWidth;
+      const ref = document.referrer;
+      console.log(ref);
       if (width >= 960) {
         setDistance(210);
       }
@@ -178,6 +182,40 @@ const Home: NextPage = () => {
       });
 }
   const textChange = () => setText("Contact");
+  const moveGallery = () => {
+    gsap.timeline({
+      repeat: 0,
+      defaults: {
+        duration: 1,
+        ease: "expo.inOut"
+      }
+    }).to("div#cubeParent", { z: '-=250' })
+    .to("div#cubeParent", {
+      rotateX: 360,
+      rotateY: 0,
+      rotateZ: 360
+    })
+      .add(gsap.timeline({
+          repeat: 0,
+          defaults: {
+            duration: 1,
+            ease: "expo.inOut"
+          }
+        })
+          .to("div#cubeParent", {
+          z: 500,
+        })
+          .to("div.cubeFace", {
+          duration:.5,
+            autoAlpha: 0,
+            //onComplete: _moveGallery
+        },"<"
+      ).add(_moveGallery)
+    );
+  }
+  const _moveGallery = () => {
+    router.push("https://dice-se.com/");
+  }
   return (
     <MainLayout title="Home">
       <div id="trigger1"></div>
@@ -187,7 +225,7 @@ const Home: NextPage = () => {
       <div id="trigger5"></div>
       <div id="trigger6"></div>
       <div id="boxarea">
-      <div className="container">
+      <div className="container" id="cubeArea">
         <div id="cubeParent">
           <div className="cubeFace fs-outer" id="face1">
             <span className="fs-inner upper">DICE<br/>SE</span>
@@ -201,8 +239,8 @@ const Home: NextPage = () => {
           <div className="cubeFace fs-outer" id="face4">
             <span className="fs-inner upper">Service</span>
           </div>
-          <div className="cubeFace fs-outer" id="face5">
-            <span className="fs-inner upper">Works</span>
+            <div className="cubeFace fs-outer" id="face5" onClick={moveGallery}>
+            <span className="fs-inner upper">Gallery</span>
           </div>
           <div className="cubeFace fs-outer" id="face6" onClick={Animation}>
               <span className="fs-inner upper">{ text }</span>
