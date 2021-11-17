@@ -236,22 +236,22 @@ const Home: NextPage = () => {
         <div id="boxarea">
         <div className="container" id="cubeArea">
           <div id="cubeParent">
-            <div className="cubeFace fs-outer" id="face1">
+            <div className="cubeFace fs-outer ai-center" id="face1">
               <span className="fs-inner upper">DICE<br/>SE</span>
             </div>
-            <div className="cubeFace fs-outer" id="face2">
+            <div className="cubeFace fs-outer ai-center" id="face2">
               <span className="fs-inner upper">About</span>
             </div>
-            <div className="cubeFace fs-outer" id="face3">
+            <div className="cubeFace fs-outer ai-center" id="face3">
               <span className="fs-inner upper">Profile</span>
             </div>
-            <div className="cubeFace fs-outer" id="face4">
+            <div className="cubeFace fs-outer ai-center" id="face4">
               <span className="fs-inner upper">Service</span>
             </div>
-              <div className="cubeFace fs-outer" id="face5" onClick={moveGallery}>
+              <div className="cubeFace fs-outer ai-center" id="face5" onClick={moveGallery}>
               <span className="fs-inner upper">Gallery</span>
             </div>
-            <div className="cubeFace fs-outer" id="face6">
+            <div className="cubeFace fs-outer ai-center" id="face6">
                 <span className="fs-inner upper">{ text }</span>
             </div>
           </div>

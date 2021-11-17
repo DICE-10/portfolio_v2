@@ -26,6 +26,9 @@ body{
 .ac-center{
     align-content: center;
 }
+.ai-center{
+    align-items: center;
+}
 .jc-start{
     justify-content:start;
 }
@@ -102,8 +105,8 @@ body{
 
 .fs-outer{
     display: flex;
-    /* justify-content: center; */
-    align-items: center;
+    /* justify-content: center; 
+    align-items: center;*/
 }
 .fs-inner{
     display: table-cell;
