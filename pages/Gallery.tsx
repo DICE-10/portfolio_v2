@@ -66,7 +66,7 @@ const Gallery: NextPage = () => {
             <h1><Link href="/">Home</Link></h1>
         <div className="fs-grid m-grid-col-2 fs-wfull gallery_area">
             <div className="fs-outer jc-center">
-                <div className="fs-inner fs-aspectHD-hor bg-crimson">
+                <div className="fs-inner bg-crimson">
                     <div id="Area">
                         <div className="scene cubeArea1">
                             <div className="cube cubeItem1">
@@ -83,17 +83,17 @@ const Gallery: NextPage = () => {
             </div>
             <div className="fs-outer jc-center">
                 <div className="fs-inner fs-aspectHD-vert fs-sh300">
-
+                    <h1 className="h1">Gallery1</h1>
                 </div>
             </div>
         </div>
         <div className="fs-grid m-grid-col-2 fs-wfull gallery_area">
-            <div className="fs-outer jc-center">
-                <div className="fs-inner fs-aspectHD-hor bg-crimson">
-                    
+            <div className="fs-outer jc-center order2 m-order1">
+                <div className="fs-inner bg-crimson">
+                    <h1 className="h1">Gallery2</h1>
                 </div>
             </div>
-            <div className="fs-outer jc-center">
+            <div className="fs-outer jc-center order1 m-order2">
                 <div className="fs-inner fs-aspectHD-vert fs-sh300">
                     <div id="Area">
                         <div className="scene">
@@ -112,7 +112,7 @@ const Gallery: NextPage = () => {
         </div>
         <div className="fs-grid m-grid-col-2 fs-wfull gallery_area">
             <div className="fs-outer jc-center">
-                <div className="fs-inner fs-aspectHD-hor bg-crimson">
+                <div className="fs-inner bg-crimson">
                     <div id="Area">
                         <div className="scene">
                             <div className="cube cubeItem3">
@@ -129,7 +129,7 @@ const Gallery: NextPage = () => {
             </div>
             <div className="fs-outer jc-center">
                 <div className="fs-inner fs-aspectHD-vert fs-sh300">
-
+                    <h1 className="h1">Gallery3</h1>
                 </div>
             </div>
         </div>

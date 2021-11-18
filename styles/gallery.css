@@ -6,8 +6,8 @@
     padding: 60px 0;
 }
 .scene {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     perspective: 600px;
     margin: 100px auto;
 }
@@ -25,29 +25,32 @@
     border: 2px solid white;
     background-color: rgba(0,0,0,0.6);
     color:white;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 .cube__face--front  { 
-    transform: rotateY(  0deg) translateZ(100px);; 
+    transform: rotateY(  0deg) translateZ(77px); 
 }
 .cube__face--right  {
-    transform: rotateY( 90deg) translateZ(100px);; 
+    transform: rotateY( 90deg) translateZ(77px);
 }
 .cube__face--back   {
-    transform: rotateY(180deg) translateZ(100px);; 
+    transform: rotateY(180deg) translateZ(77px);
 }
 .cube__face--left   { 
-    transform: rotateY(-90deg) translateZ(100px);; 
+    transform: rotateY(-90deg) translateZ(77px);
 }
 .cube__face--top    {
-    transform: rotateX( 90deg) translateZ(100px);; 
+    transform: rotateX( 90deg) translateZ(77px);
 }
 .cube__face--bottom {
-    transform: rotateX(-90deg) translateZ(100px);; 
+    transform: rotateX(-90deg) translateZ(77px);; 
 }
 @media screen and (min-width: 481px) {
 	/* 481px以上に適用されるCSS（タブレット用） */
+    .h1{
+        font-size: 2.6rem;
+    }
     .gallery_area{
         height: 500px;
         padding: 60px 0;
@@ -96,6 +99,58 @@
 }
 @media screen and (min-width: 960px) {
 	/* 960px以上に適用されるCSS（PC用） */
+    .h1{
+        font-size: 3rem;
+    }
+    .gallery_area{
+        height: 500px;
+        padding: 60px 0;
+    }
+    .scene {
+        width: 250px;
+        height: 250px;
+        perspective: 600px;
+        margin: 100px auto;
+    }
+    
+    .cube {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        font-size: 1.5rem;
+    }
+    
+    .cube__face {
+        position: absolute;
+        border: 2px solid white;
+        background-color: rgba(0,0,0,0.6);
+        color:white;
+        width: 250px;
+        height: 250px;
+    }
+    .cube__face--front  { 
+        transform: rotateY(  0deg) translateZ(127px); 
+    }
+    .cube__face--right  {
+        transform: rotateY( 90deg) translateZ(127px);
+    }
+    .cube__face--back   {
+        transform: rotateY(180deg) translateZ(127px);
+    }
+    .cube__face--left   { 
+        transform: rotateY(-90deg) translateZ(127px);
+    }
+    .cube__face--top    {
+        transform: rotateX( 90deg) translateZ(127px);
+    }
+    .cube__face--bottom {
+        transform: rotateX(-90deg) translateZ(127px);
+    }
+}
+
+@media screen and (min-width: 1080px) {
+	/* 960px以上に適用されるCSS（PC用） */
     .gallery_area{
         height: 500px;
         padding: 60px 0;
@@ -124,21 +179,21 @@
         height: 300px;
     }
     .cube__face--front  { 
-        transform: rotateY(  0deg) translateZ(150px);; 
+        transform: rotateY(  0deg) translateZ(151px);; 
     }
     .cube__face--right  {
-        transform: rotateY( 90deg) translateZ(150px);; 
+        transform: rotateY( 90deg) translateZ(151px);; 
     }
     .cube__face--back   {
-        transform: rotateY(180deg) translateZ(150px);; 
+        transform: rotateY(180deg) translateZ(151px);; 
     }
     .cube__face--left   { 
-        transform: rotateY(-90deg) translateZ(150px);; 
+        transform: rotateY(-90deg) translateZ(151px);; 
     }
     .cube__face--top    {
-        transform: rotateX( 90deg) translateZ(150px);; 
+        transform: rotateX( 90deg) translateZ(151px);; 
     }
     .cube__face--bottom {
-        transform: rotateX(-90deg) translateZ(150px);; 
+        transform: rotateX(-90deg) translateZ(151px);; 
     }
 }
