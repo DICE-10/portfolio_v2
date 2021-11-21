@@ -14,31 +14,6 @@ const Home: NextPage = () => {
   const router = useRouter();
   var distance = 0;
   var flg = false;
-  const useWidth = () => {
-    if (process.browser) {
-      const [width, setWidth] = useState(window.innerWidth);
-      const handleResize = () => setWidth(window.innerWidth);
-      useEffect(() => {
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-      }, [width]);
-      console.log(width);
-      
-      if (width >= 960) {
-        distance = 210;
-        //setDistance(210);
-      }
-      else if (width >= 480) {
-        distance = 160;
-        //setDistance(160);
-      }
-      else {
-        distance = 110;
-        //setDistance(110);
-      }
-      console.log(">>" + distance);
-    }
-  };
   useEffect(() => {
     if (process.browser) {
       
@@ -56,7 +31,6 @@ const Home: NextPage = () => {
           distance = 110;
           //setDistance(110);
         }
-        console.log(">>>>>>"+distance);
         gsap.registerPlugin(ScrollTrigger);
         Animation();
       }, 500);
@@ -64,7 +38,6 @@ const Home: NextPage = () => {
     }
     
   }, []);
-  useWidth();
   const Animation = () => {
     if (!flg) {
       var tl3 = gsap.timeline({ paused: true });
