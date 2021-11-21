@@ -198,6 +198,7 @@ const Home: NextPage = () => {
         duration: .3,
         rotateY: 180,
         rotateX: 180,
+        left: "-=10"
       },"<");
 }
   const textChange = () => setText("Contact");
