@@ -208,6 +208,13 @@ const Home: NextPage = () => {
         duration: 1,
         ease: "expo.inOut"
       }
+    }).to("div.mainArrow", { duration: .3, autoAlpha: 0 });
+    gsap.timeline({
+      repeat: 0,
+      defaults: {
+        duration: 1,
+        ease: "expo.inOut"
+      }
     }).to("div#cubeParent", { z: '-=250' })
     .to("div#cubeParent", {
       rotateX: 360,
