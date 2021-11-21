@@ -6,15 +6,42 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
+import Arrow from './components/Arrow';
 
 const Home: NextPage = () => {
   const [text, setText] = useState("Loading");
   //const [distance, setDistance] = useState(0);
   const router = useRouter();
   var distance = 0;
-  var flg = false;  
+  var flg = false;
+  const useWidth = () => {
+    if (process.browser) {
+      const [width, setWidth] = useState(window.innerWidth);
+      const handleResize = () => setWidth(window.innerWidth);
+      useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+      }, [width]);
+      console.log(width);
+      
+      if (width >= 960) {
+        distance = 210;
+        //setDistance(210);
+      }
+      else if (width >= 480) {
+        distance = 160;
+        //setDistance(160);
+      }
+      else {
+        distance = 110;
+        //setDistance(110);
+      }
+      console.log(">>" + distance);
+    }
+  };
   useEffect(() => {
     if (process.browser) {
+      
       const width = window.innerWidth;
       setTimeout(() => {
         if (width >= 960) {
@@ -29,6 +56,7 @@ const Home: NextPage = () => {
           distance = 110;
           //setDistance(110);
         }
+        console.log(">>>>>>"+distance);
         gsap.registerPlugin(ScrollTrigger);
         Animation();
       }, 500);
@@ -36,6 +64,7 @@ const Home: NextPage = () => {
     }
     
   }, []);
+  useWidth();
   const Animation = () => {
     if (!flg) {
       var tl3 = gsap.timeline({ paused: true });
@@ -96,12 +125,12 @@ const Home: NextPage = () => {
       tl3.to("div#cubeParent", { z: '-=150' })
         .to("div.cubeFace", { autoAlpha: 1 })
         .to("div#face1", { rotationX: 360, rotationY: 360, z: distance })
-        .to("div#face2", { rotationX: 90, rotationY: 0,rotationZ: 360, y: -distance }, '1')
+        .to("div#face2", { rotationX: 90, rotationY: 0, rotationZ: 360, y: -distance }, '1')
         .to("div#face3", { rotationY: 270, x: -distance }, '1')
-        .to("div#face4", { rotationX: 270, rotationY: 360,y: distance }, '1')
-        .to("div#face5", { rotationY: 90,rotationZ: 360, x: distance }, '1')
-        .to("div#face6", { rotationX: 180, rotationY: 0, rotationZ: 180, z: -distance ,onComplete: textChange}, '1');
-    
+        .to("div#face4", { rotationX: 270, rotationY: 360, y: distance }, '1')
+        .to("div#face5", { rotationY: 90, rotationZ: 360, x: distance }, '1')
+        .to("div#face6", { rotationX: 180, rotationY: 0, rotationZ: 180, z: -distance, onComplete: textChange }, '1')
+        .to("div.mainArrow", { duration: .3, autoAlpha: 1 }, "<");
   
       gsap.set("div.container", { perspective: 500 });
       gsap.set("div#cubeParent", { transformStyle: "preserve-3d" });
@@ -172,7 +201,12 @@ const Home: NextPage = () => {
       .to("div#cubeParent", {
         rotateX: 360,
         rotateY: -90,
-      });
+      })
+      .to("div.mainArrow", {
+        duration: .3,
+        rotateY: 0,
+        rotateX: 0,
+      },"<");
   }
   const cube5 = () => {// bottom
     gsap.timeline({
@@ -186,7 +220,12 @@ const Home: NextPage = () => {
         rotateX: 0,
         rotateZ: -360,
         rotateY: 180,
-      });
+      })
+      .to("div.mainArrow", {
+        duration: .3,
+        rotateY: 180,
+        rotateX: 180,
+      },"<");
 }
   const textChange = () => setText("Contact");
   const moveGallery = () => {
@@ -226,6 +265,7 @@ const Home: NextPage = () => {
   }
   return (
     <MainLayout title="Home">
+      <Arrow/>
       <div id="mainBody">
         <div id="trigger1"></div>
         <div id="trigger2"></div>
@@ -239,19 +279,19 @@ const Home: NextPage = () => {
             <div className="cubeFace fs-outer ai-center" id="face1">
               <span className="fs-inner upper">DICE<br/>SE</span>
             </div>
-            <div className="cubeFace fs-outer ai-center" id="face2">
+            <div className="cubeFace fs-outer ai-center" id="face2" title="しばしお待ちを……！">
               <span className="fs-inner upper">About</span>
             </div>
-            <div className="cubeFace fs-outer ai-center" id="face3">
+            <div className="cubeFace fs-outer ai-center" id="face3" title="しばしお待ちを……！">
               <span className="fs-inner upper">Profile</span>
             </div>
-            <div className="cubeFace fs-outer ai-center" id="face4">
+            <div className="cubeFace fs-outer ai-center" id="face4" title="しばしお待ちを……！">
               <span className="fs-inner upper">Service</span>
             </div>
               <div className="cubeFace fs-outer ai-center" id="face5" onClick={moveGallery}>
               <span className="fs-inner upper">Gallery</span>
             </div>
-            <div className="cubeFace fs-outer ai-center" id="face6">
+            <div className="cubeFace fs-outer ai-center" id="face6" title="しばしお待ちを……！">
                 <span className="fs-inner upper">{ text }</span>
             </div>
           </div>

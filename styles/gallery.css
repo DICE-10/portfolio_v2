@@ -46,6 +46,9 @@
 .cube__face--bottom {
     transform: rotateX(-90deg) translateZ(77px);; 
 }
+.cubeArea1{
+    opacity: 0;
+}
 @media screen and (min-width: 481px) {
 	/* 481px以上に適用されるCSS（タブレット用） */
     .h1{

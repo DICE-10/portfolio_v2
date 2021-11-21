@@ -49,17 +49,63 @@ const Gallery: NextPage = () => {
     }
     const Cube2 = () => {
         gsap.timeline({
-           repeat: -1,
-        }).to("div.cubeItem2", { duration: 10, rotationX: -360 })
-            .to("div.cubeItem2", { duration: 10, rotationY: 360 })
-            .to("div.cubeItem2", { duration: 10, rotationZ: -360, rotationX: 0 });
+            repeat: 0,
+        }).set("div.cubeArea2", { autoAlpha: 0 })
+        .set("div.cubeItem2", { z: "-=500" })
+        .add(gsap.timeline({
+            repeat: 0,
+            defaults: {
+                duration: 1.25,
+            }
+        })
+        .to("div.cubeArea2", {
+            duration: 1,
+            autoAlpha: 1,
+            //onComplete: _moveGallery
+        })
+        .to("div.cubeItem2", {
+            z: 0,
+            onComplete: () => {
+                gsap.timeline({
+                    repeat: -1,
+                 }).to("div.cubeItem2", { duration: 10, rotationX: -360 })
+                     .to("div.cubeItem2", { duration: 10, rotationY: 360 })
+                     .to("div.cubeItem2", { duration: 10, rotationZ: -360, rotationX: 0 });
+            }
+        }, "<")
+                
+        );
+        
     }
     const Cube3 = () => {
         gsap.timeline({
-           repeat: -1,
-        }).to("div.cubeItem3", { duration: 10, rotationZ: -360 ,rotationX: -360,})
-            .to("div.cubeItem3", { duration: 10, rotationY: 360 })
-            .to("div.cubeItem3", { duration: 10, rotationX: 360 ,rotationY: 360});
+            repeat: 0,
+        }).set("div.cubeArea3", { autoAlpha: 0 })
+        .set("div.cubeItem3", { z: "-=500" })
+        .add(gsap.timeline({
+            repeat: 0,
+            defaults: {
+                duration: 1.25,
+            }
+        })
+        .to("div.cubeArea3", {
+            duration: 1,
+            autoAlpha: 1,
+            //onComplete: _moveGallery
+        })
+        .to("div.cubeItem3", {
+            z: 0,
+            onComplete: () => {
+                gsap.timeline({
+                    repeat: -1,
+                 }).to("div.cubeItem3", { duration: 10, rotationZ: -360 ,rotationX: -360,})
+                     .to("div.cubeItem3", { duration: 10, rotationY: 360 })
+                     .to("div.cubeItem3", { duration: 10, rotationX: 360 ,rotationY: 360});
+            }
+        }, "<")
+                
+        );
+        
    }
     return (
         <>
