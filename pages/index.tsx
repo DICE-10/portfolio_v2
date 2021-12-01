@@ -7,108 +7,133 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
 import Arrow from './components/Arrow';
+import useWindowDimensions from './api/getWindowSize'
 
 const Home: NextPage = () => {
   const [text, setText] = useState("Loading");
   //const [distance, setDistance] = useState(0);
   const router = useRouter();
-  var distance = 0;
+  //var distance = 0;
   var flg = false;
+  const { width, height, distance } = useWindowDimensions();
+  const onResize = () => {
+    Animation(getDist(window?.innerWidth));
+  };
   useEffect(() => {
     if (process.browser) {
-      
-      const width = window.innerWidth;
       setTimeout(() => {
-        if (width >= 960) {
-          distance = 210;
-          //setDistance(210);
-        }
-        else if (width >= 480) {
-          distance = 160;
-          //setDistance(160);
-        }
-        else {
-          distance = 110;
-          //setDistance(110);
-        }
         gsap.registerPlugin(ScrollTrigger);
         Animation();
       }, 500);
       
+      window.addEventListener('resize', onResize);
     }
     
   }, []);
-  const Animation = () => {
+  
+  const Animation = (dist?: number) => {
+    //var d = distance;
+    if (dist != undefined) {
+      gsapAnimetion(dist);
+    }
+    else {
+      gsapAnimetion(distance);
+    }
+      
+    
+  }
+  const gsapAnimetion = (distanceNum: number) => {
+    var tl3 = gsap.timeline({ paused: true });
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#trigger1',
+        start: 'top', // アニメーション開始位置
+        scrub: true,
+        //markers: true, // マーカー表示
+        onToggle: cube
+      }
+    });
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#trigger2',
+        start: 'top', // アニメーション開始位置
+        scrub: true,
+       // markers: true, // マーカー表示
+        onToggle: cube1
+      }
+    });
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#trigger3',
+        start: 'top', // アニメーション開始位置
+        scrub: true,
+        //markers: true, // マーカー表示
+        onToggle: cube2
+      }
+    });
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#trigger4',
+        start: 'top', // アニメーション開始位置
+        scrub: true,
+        //markers: true, // マーカー表示
+        onToggle: cube3
+      }
+    });
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#trigger5',
+        start: 'top', // アニメーション開始位置
+        scrub: true,
+        //markers: true, // マーカー表示
+        onToggle: cube4
+      }
+    });
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#trigger6',
+        start: 'top', // アニメーション開始位置
+        scrub: true,
+        //markers: true, // マーカー表示
+        onToggle: cube5
+      }
+    });
     if (!flg) {
-      var tl3 = gsap.timeline({ paused: true });
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '#trigger1',
-          start: 'top', // アニメーション開始位置
-          scrub: true,
-          //markers: true, // マーカー表示
-          onToggle: cube
-        }
-      });
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '#trigger2',
-          start: 'top', // アニメーション開始位置
-          scrub: true,
-         // markers: true, // マーカー表示
-          onToggle: cube1
-        }
-      });
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '#trigger3',
-          start: 'top', // アニメーション開始位置
-          scrub: true,
-          //markers: true, // マーカー表示
-          onToggle: cube2
-        }
-      });
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '#trigger4',
-          start: 'top', // アニメーション開始位置
-          scrub: true,
-          //markers: true, // マーカー表示
-          onToggle: cube3
-        }
-      });
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '#trigger5',
-          start: 'top', // アニメーション開始位置
-          scrub: true,
-          //markers: true, // マーカー表示
-          onToggle: cube4
-        }
-      });
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '#trigger6',
-          start: 'top', // アニメーション開始位置
-          scrub: true,
-          //markers: true, // マーカー表示
-          onToggle: cube5
-        }
-      });
       tl3.to("div#cubeParent", { z: '-=150' })
         .to("div.cubeFace", { autoAlpha: 1 })
-        .to("div#face1", { rotationX: 360, rotationY: 360, z: distance })
-        .to("div#face2", { rotationX: 90, rotationY: 0, rotationZ: 360, y: -distance }, '1')
-        .to("div#face3", { rotationY: 270, x: -distance }, '1')
-        .to("div#face4", { rotationX: 270, rotationY: 360, y: distance }, '1')
-        .to("div#face5", { rotationY: 90, rotationZ: 360, x: distance }, '1')
-        .to("div#face6", { rotationX: 180, rotationY: 0, rotationZ: 180, z: -distance, onComplete: textChange }, '1')
+        .to("div#face1", { rotationX: 360, rotationY: 360, z: distanceNum })
+        .to("div#face2", { rotationX: 90, rotationY: 0, rotationZ: 360, y: -distanceNum }, '1')
+        .to("div#face3", { rotationY: 270, x: -distanceNum }, '1')
+        .to("div#face4", { rotationX: 270, rotationY: 360, y: distanceNum }, '1')
+        .to("div#face5", { rotationY: 90, rotationZ: 360, x: distanceNum }, '1')
+        .to("div#face6", { rotationX: 180, rotationY: 0, rotationZ: 180, z: -distanceNum, onComplete: textChange }, '1')
         .to("div.mainArrow", { duration: .3, autoAlpha: 1 }, "<");
-  
-      gsap.set("div.container", { perspective: 500 });
-      gsap.set("div#cubeParent", { transformStyle: "preserve-3d" });
-      tl3.play(0);
       flg = true;
+    }
+    else {
+      tl3
+      .to("div.cubeFace", { autoAlpha: 1 })
+      .to("div#face1", { rotationX: 360, rotationY: 360, z: distanceNum })
+      .to("div#face2", { rotationX: 90, rotationY: 0, rotationZ: 360, y: -distanceNum }, '1')
+      .to("div#face3", { rotationY: 270, x: -distanceNum }, '1')
+      .to("div#face4", { rotationX: 270, rotationY: 360, y: distanceNum }, '1')
+      .to("div#face5", { rotationY: 90, rotationZ: 360, x: distanceNum }, '1')
+      .to("div#face6", { rotationX: 180, rotationY: 0, rotationZ: 180, z: -distanceNum, onComplete: textChange }, '1')
+      .to("div.mainArrow", { duration: .3, autoAlpha: 1 }, "<");
+    }
+    gsap.set("div.container", { perspective: 500 });
+    gsap.set("div#cubeParent", { transformStyle: "preserve-3d" });
+    tl3.play(0);
+  }
+  const getDist = (w: number) => {
+    if (w >= 960) {
+      return 210;
+    }
+    else if (w >= 480) {
+      return 160;
+    }
+    else {
+      return 110;
     }
   }
   const cube = () => {// front

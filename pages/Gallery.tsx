@@ -109,6 +109,7 @@ const Gallery: NextPage = () => {
    }
     return (
         <>
+            <Navbar />
             <h1><Link href="/">Home</Link></h1>
         <div className="fs-grid m-grid-col-2 fs-wfull gallery_area">
             <div className="fs-outer jc-center">
