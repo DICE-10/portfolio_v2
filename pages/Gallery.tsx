@@ -38,7 +38,7 @@ const Gallery: NextPage = () => {
                 gsap.timeline({
                     repeat: -1,
                  })
-                    .to("div.cubeItem1", { duration: 10, rotationY: 360 })
+                .to("div.cubeItem1", { duration: 10, rotationY: 360 })
                   .to("div.cubeItem1",  { duration:10, rotationX:-360})
                   .to("div.cubeItem1", { duration:10, rotationY:-360, rotationX:0});
             }
@@ -143,7 +143,7 @@ const Gallery: NextPage = () => {
             <div className="fs-outer jc-center order1 m-order2">
                 <div className="fs-inner fs-aspectHD-vert fs-sh300">
                     <div id="Area">
-                        <div className="scene">
+                        <div className="scene cubeArea2">
                             <div className="cube cubeItem2">
                                 <div className="cube__face cube__face--front">front</div>
                                 <div className="cube__face cube__face--back">back</div>
@@ -161,7 +161,7 @@ const Gallery: NextPage = () => {
             <div className="fs-outer jc-center">
                 <div className="fs-inner bg-crimson">
                     <div id="Area">
-                        <div className="scene">
+                        <div className="scene cubeArea3">
                             <div className="cube cubeItem3">
                                 <div className="cube__face cube__face--front">front</div>
                                 <div className="cube__face cube__face--back">back</div>

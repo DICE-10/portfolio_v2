@@ -109,6 +109,10 @@ const Home: NextPage = () => {
         .to("div#face6", { rotationX: 180, rotationY: 0, rotationZ: 180, z: -distanceNum, onComplete: textChange }, '1')
         .to("div.mainArrow", { duration: .3, autoAlpha: 1 }, "<");
       flg = true;
+      gsap.set("div.container", { perspective: 500 });
+      gsap.set("div#cubeParent", { transformStyle: "preserve-3d" });
+      
+    tl3.play(0);
     }
     else {
       tl3
@@ -119,11 +123,12 @@ const Home: NextPage = () => {
       .to("div#face4", { rotationX: 270, rotationY: 360, y: distanceNum }, '1')
       .to("div#face5", { rotationY: 90, rotationZ: 360, x: distanceNum }, '1')
       .to("div#face6", { rotationX: 180, rotationY: 0, rotationZ: 180, z: -distanceNum, onComplete: textChange }, '1')
-      .to("div.mainArrow", { duration: .3, autoAlpha: 1 }, "<");
+        .to("div.mainArrow", { duration: .3, autoAlpha: 1 }, "<");
+        gsap.set("div.container", { perspective: 500 });
+      gsap.set("div#cubeParent", { transformStyle: "preserve-3d" });
+      
+      tl3.play(0);
     }
-    gsap.set("div.container", { perspective: 500 });
-    gsap.set("div#cubeParent", { transformStyle: "preserve-3d" });
-    tl3.play(0);
   }
   const getDist = (w: number) => {
     if (w >= 960) {
